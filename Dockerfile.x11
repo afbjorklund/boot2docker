@@ -88,6 +88,8 @@ RUN set -x && \
 
 RUN sed -e 's|superuser|superuser -a -z "$SUDO_USER"|' -i "$ROOTFS/root/.profile"
 
+COPY boot2docker.png "$ROOTFS/usr/local/share/pixmaps/logo.png"
+
 RUN set -x && \
     ( echo "X11Forwarding yes"; echo "X11UseLocalhost no" ) >> "$ROOTFS/usr/local/etc/ssh/sshd_config"
 
